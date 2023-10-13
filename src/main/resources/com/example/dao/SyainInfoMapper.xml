@@ -10,4 +10,8 @@
 	<select id="counter" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM T_SYAIN;
     </select>
+    <select id="syainList" resultType="com.example.entity.TSyain">
+        SELECT * FROM T_SYAIN;
+    </select>
+    
 </mapper>

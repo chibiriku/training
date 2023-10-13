@@ -1,9 +1,6 @@
 package com.example.service;
 
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,24 +13,16 @@ public class SignupService {
 	@Autowired
 	private SyainInfoMapper SyainInfoMapper;
 	
+	@Autowired
+	private IdGeneraterService idGeneraterService;
+	
 	public void syainAdd(SignupForm form) {
 		SyainInfoMapper.syainAdd(form);	
 	}
 	
-	private Integer counter() {
-		int num = SyainInfoMapper.counter();
-		num = num + 1;
-		return num;
-	}
-	
-	private String date() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
-		return dateFormat.format(new Date());
-	}
-	
 	public String generater() {
-		String year = date();
-		String countChange = String.format("%03d", counter());
+		String year = idGeneraterService.date();
+		String countChange = String.format("%03d", idGeneraterService.counter());
 		return year + countChange;
 	}
 	
