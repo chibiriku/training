@@ -17,8 +17,9 @@
 		<tbody th:each="item : ${list}" th:object="${item}">
 			<td><span th:text="*{userId}"></span></td>
             <td><span th:text="*{name}"></span></td>
-            <td><span th:text="*{gender}"></span></td>
-            <td><span th:text="*{birthday}"></span></td>
+            <td><span th:text="*{gender==1}?'男性':'女性'"></span></td>
+            <td><span th:text="${#dates.format(item.birthday, 'YYYY/MM/dd')}"></span></td>
+            <td><a th:href="@{/rpc/{userId}/edit(userId=*{userId})}">編集</a></td>
 		</tbody>
 	</table>
 </body>

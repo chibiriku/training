@@ -13,5 +13,8 @@
     <select id="syainList" resultType="com.example.entity.TSyain">
         SELECT * FROM T_SYAIN;
     </select>
+    <select id="findByUserId" resultType="com.example.entity.TSyain">
+        SELECT * FROM T_SYAIN WHERE userId = #{userId};
+    </select>
     
 </mapper>

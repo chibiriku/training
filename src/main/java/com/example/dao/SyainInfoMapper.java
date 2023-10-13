@@ -16,4 +16,6 @@ public interface SyainInfoMapper {
 	
 	List<TSyain> syainList();
 	
+	TSyain findByUserId(String userId);
+	
 }
