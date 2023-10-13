@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>社員ID</th>
+				<th>名前</th>
+				<th>性別</th>
+				<th>生年月日</th>
+			</tr>
+		</thead>
+		<tbody th:each="item : ${list}" th:object="${item}">
+			<td><span th:text="*{userId}"></span></td>
+            <td><span th:text="*{name}"></span></td>
+            <td><span th:text="*{gender}"></span></td>
+            <td><span th:text="*{birthday}"></span></td>
+		</tbody>
+	</table>
+</body>
+</html>
