@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:text="${updateSyain.userId}"></p>
+	<p th:text="${updateSyain.name}"></p>
+	<p th:text="${updateSyain.gender==1}?'男性':'女性'"></p>
+	<p th:text="${#dates.format(updateSyain.birthday, 'YYYY/MM/dd')}"></p>
+</body>
+</html>
+
+</body>
+</html>

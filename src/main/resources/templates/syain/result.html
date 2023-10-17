@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>社員ID</th>
+					<th>名前</th>
+					<th>性別</th>
+					<th>生年月日</th>
+				</tr>
+			</thead>
+			<tbody th:each="item : ${result}">
+				<tr>
+					<td><span th:text="${item.userId}"></span></td>
+		            <td><span th:text="${item.name}"></span></td>
+		            <td>
+		                <span th:if="${item.gender==1}">男性</span>
+		                <span th:if="${item.gender==2}">女性</span>
+		            </td>
+		            <td><span th:text="${#dates.format(item.birthday, 'yyyy/MM/dd')}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

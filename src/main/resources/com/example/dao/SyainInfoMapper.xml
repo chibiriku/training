@@ -16,5 +16,13 @@
     <select id="findByUserId" resultType="com.example.entity.TSyain">
         SELECT * FROM T_SYAIN WHERE userId = #{userId};
     </select>
-    
+    <update id="update">
+        UPDATE T_SYAIN SET name = #{name}, birthday = #{birthday}, gender = #{gender}, updateDate = CURRENT_TIMESTAMP WHERE userId = #{userId}
+    </update>
+    <delete id="delete">
+    	DELETE FROM T_SYAIN WHERE userId = #{userId};
+    </delete>
+    <select id="search" resultType="com.example.entity.TSyain">
+    	SELECT * FROM T_SYAIN WHERE name = #{name}
+    </select> 
 </mapper>

@@ -17,5 +17,9 @@ public class SyainListService {
 	public List<TSyain> syainList(){
 		return syainInfoMapper.syainList();
 	}
+	
+	public List<TSyain>search(String name){
+		return syainInfoMapper.search(name);
+	}
 
 }

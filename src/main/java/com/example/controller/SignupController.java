@@ -7,12 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.dto.SignupForm;
 import com.example.service.SignupService;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/rpc")
@@ -24,24 +21,14 @@ class SignupController {
 	@GetMapping("/signup")
 	public String getSignup(Model model) {
 		model.addAttribute("form" ,new SignupForm());
-		return "/signup";
+		return "/signup/signup";
 	}
 	
 	@PostMapping("/signup")
-	public String postSignup(@ModelAttribute SignupForm form, Model model, RedirectAttributes redirectAttributes) {
+	public String postSignup(@ModelAttribute SignupForm form, Model model) {
 		form.setUserId(signupService.generater());
 		signupService.syainAdd(form);
-		redirectAttributes.addFlashAttribute("syain",form);
-		return "redirect:/rpc/confirm";
+		model.addAttribute("syain", form);
+		return "/signup/confirm";
 	}
-	
-	@GetMapping("/confirm")
-	public String confirmDisplay(HttpServletRequest request, Model model) {
-		
-		SignupForm syain = (SignupForm) model.getAttribute("syain");
-		model.addAttribute("syain",syain);
-		
-		return "/confirm";
-	}
-
 }

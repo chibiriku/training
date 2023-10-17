@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.dto.UpdateForm;
@@ -24,9 +26,23 @@ public class EditController {
         UpdateForm syainUpdate = new UpdateForm();
         syainUpdate.setUserId(syain.getUserId());
         syainUpdate.setName(syain.getName());
+        syainUpdate.setGender(syain.getGender());
         syainUpdate.setBirthday(syain.getBirthday());
         model.addAttribute("syainUpdate", syainUpdate);
-        return "/edit";
+        return "update/edit";
     }
+	
+	@PostMapping("/edit")
+    public String update(@ModelAttribute UpdateForm updateForm, Model model) {
+		editService.update(updateForm);
+		model.addAttribute("updateSyain",updateForm);
+        return "/update/confirm";
+    }
+	
+	@PostMapping("/delete")
+	public String delete(@ModelAttribute UpdateForm updateForm, Model model) {
+		editService.delete(updateForm);
+		return "redirect:/rpc/list";
+	}
 
 }
