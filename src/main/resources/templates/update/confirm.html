@@ -7,8 +7,10 @@
 <body>
 	<p th:text="${updateSyain.userId}"></p>
 	<p th:text="${updateSyain.name}"></p>
+	<p th:text="${updateSyain.password}"></p>
 	<p th:text="${updateSyain.gender==1}?'男性':'女性'"></p>
 	<p th:text="${#dates.format(updateSyain.birthday, 'YYYY/MM/dd')}"></p>
+	<a th:href="@{/rpc/list}">社員名簿一覧</a>
 </body>
 </html>
 
