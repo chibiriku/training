@@ -26,6 +26,7 @@ public class EditController {
         UpdateForm syainUpdate = new UpdateForm();
         syainUpdate.setUserId(syain.getUserId());
         syainUpdate.setName(syain.getName());
+        syainUpdate.setPassword(syain.getPassword());
         syainUpdate.setGender(syain.getGender());
         syainUpdate.setBirthday(syain.getBirthday());
         model.addAttribute("syainUpdate", syainUpdate);

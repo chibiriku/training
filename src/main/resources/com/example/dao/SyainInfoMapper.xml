@@ -30,7 +30,7 @@
     </update>
    <!-- 名前検索 -->
     <select id="search" resultType="com.example.entity.TSyain">
-    	SELECT * FROM T_SYAIN WHERE name = #{name}
+    	SELECT * FROM T_SYAIN WHERE name = #{name} AND deleteTime IS NULL;
     </select> 
     <!--ログイン -->
 	<select id="login" resultType="com.example.entity.TSyain">
