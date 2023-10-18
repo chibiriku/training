@@ -1,25 +1,20 @@
 package com.example.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.SyainInfoMapper;
+import com.example.dto.LoginForm;
 import com.example.entity.TSyain;
 
 @Service
-public class SyainListService {
+public class LoginService {
 	
 	@Autowired
 	private SyainInfoMapper syainInfoMapper;
 	
-	public List<TSyain> syainList(){
-		return syainInfoMapper.syainList();
-	}
-	
-	public List<TSyain>search(String name){
-		return syainInfoMapper.search(name);
+	public TSyain login(LoginForm loginForm) {
+		return syainInfoMapper.login(loginForm);
 	}
 
 }

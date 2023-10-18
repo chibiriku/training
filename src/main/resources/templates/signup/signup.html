@@ -8,6 +8,7 @@
 	<form method="post" th:action="@{/rpc/signup}" th:object="${form}">
 		<input type="text" th:field="*{name}" placeholder="名前">
 		<input type="text" th:field="*{birthday}" placeholder="生年月日">
+		<input type="text" th:field="*{password}" placeholder="パスワード">
 		<label for="male">男:</label>
         <input type="radio"  th:field="*{gender}" value="1">
         <label for="female">女:</label>

@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.SyainInfoMapper">
+	<!-- 社員データの登録 -->
 	<insert id="syainAdd">
 		INSERT INTO T_SYAIN
-            (name, userId, birthday, gender, entryDate)
+            (name, userId, password, birthday, gender, entryDate)
         VALUES
-            (#{name}, #{userId}, #{birthday}, #{gender}, CURRENT_TIMESTAMP)		
+            (#{name}, #{userId}, #{password}, #{birthday}, #{gender}, CURRENT_TIMESTAMP)		
 	</insert>
+	<!-- テーブルデータ数カウント -->
 	<select id="counter" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM T_SYAIN;
     </select>
+    <!-- 社員データ全て取得 -->
     <select id="syainList" resultType="com.example.entity.TSyain">
-        SELECT * FROM T_SYAIN;
+        SELECT * FROM T_SYAIN WHERE deleteTime IS NULL;
     </select>
-    
+    <!-- 社員のデータ一件取得 -->
+    <select id="findByUserId" resultType="com.example.entity.TSyain">
+        SELECT * FROM T_SYAIN WHERE userId = #{userId} AND deleteTime IS NULL;
+    </select>
+    <!-- データの更新 -->
+    <update id="update">
+        UPDATE T_SYAIN SET name = #{name}, birthday = #{birthday}, gender = #{gender}, updateDate = CURRENT_TIMESTAMP WHERE userId = #{userId}
+    </update>
+    <!-- 論理削除  -->
+    <update id="delete">
+        UPDATE T_SYAIN SET deleteTime = CURRENT_TIMESTAMP WHERE userId = #{userId}
+    </update>
+   <!-- 名前検索 -->
+    <select id="search" resultType="com.example.entity.TSyain">
+    	SELECT * FROM T_SYAIN WHERE name = #{name}
+    </select> 
+    <!--ログイン -->
+	<select id="login" resultType="com.example.entity.TSyain">
+        SELECT * FROM T_SYAIN WHERE userId = #{userId} AND password = #{password}
+    </select>
+    <!-- レコード削除
+    <delete id="delete">
+    	DELETE FROM T_SYAIN WHERE userId = #{userId};
+    </delete>
+    -->
 </mapper>

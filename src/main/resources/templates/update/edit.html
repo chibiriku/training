@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/rpc/edit}" th:method="post" th:object="${syainUpdate}">
+		<input type="hidden" th:field="*{userId}">
+		<input type="text" th:field="*{name}">
+		<input type="text" th:field="*{birthday}">
+		<label for="male">男:</label>
+	    <input type="radio"  th:field="*{gender}" value="1">
+	    <label for="female">女:</label>
+	    <input type="radio"  th:field="*{gender}" value="2">
+	    
+	    <input type="submit" value="更新">
+	</form>
+	<form th:action="@{/rpc/delete}" th:method="post" th:object="${syainUpdate}">
+        <input type="hidden" th:field="*{userId}" />
+        <input type="submit" value="削除" />
+    </form>
+	
+	
+</body>
+</html>
