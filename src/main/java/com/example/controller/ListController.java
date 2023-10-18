@@ -21,6 +21,7 @@ public class ListController {
 	@Autowired
 	private SyainListService syainListService;
 	
+	//社員名簿一覧の表示
 	@GetMapping("/list")
 	public String syainList(Model model) {
 	    List<TSyain> list = syainListService.syainList();
@@ -28,7 +29,8 @@ public class ListController {
 	    model.addAttribute("list", list);
 	    return "syain/list";
 	}
-
+	
+	//検索機能
 	@PostMapping("/search")
     public String search(@ModelAttribute SearchForm searchForm, Model model) {
         String name = searchForm.getName();

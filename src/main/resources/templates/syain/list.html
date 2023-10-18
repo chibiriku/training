@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>社員一覧</title>
 </head>
 <body>
+	<h1>社員一覧</h1>
 	<div>
 		<form th:action="@{/rpc/search}" th:object="${searchForm}" th:method="post">
 			 <input type="text" th:field="*{name}">

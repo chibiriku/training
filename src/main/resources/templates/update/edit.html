@@ -2,9 +2,10 @@
 <html xmls:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>編集</title>
 </head>
 <body>
+	<h1>編集</h1>
 	<form th:action="@{/rpc/edit}" th:method="post" th:object="${syainUpdate}">
 		<input type="hidden" th:field="*{userId}">
 		<input type="text" th:field="*{name}">

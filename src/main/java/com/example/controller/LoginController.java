@@ -20,12 +20,14 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
+	//ログインフォームの表示
 	@GetMapping("/login")
 	public String getlogin (Model model) {
 		model.addAttribute("loginForm", new LoginForm()); 
 		return "/syain/login";
 	}
 	
+	//ログイン機能
 	@PostMapping("/login")
 	public String postlogin(@ModelAttribute LoginForm form ,Model model) {
 		loginService.login(form);

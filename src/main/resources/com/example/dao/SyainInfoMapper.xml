@@ -34,7 +34,7 @@
     </select> 
     <!--ログイン -->
 	<select id="login" resultType="com.example.entity.TSyain">
-        SELECT * FROM T_SYAIN WHERE userId = #{userId} AND password = #{password}
+        SELECT * FROM T_SYAIN WHERE userId = #{userId} AND password = #{password} AND deleteTime IS NULL;
     </select>
     <!-- レコード削除
     <delete id="delete">

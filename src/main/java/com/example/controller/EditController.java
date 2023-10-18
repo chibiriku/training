@@ -20,6 +20,7 @@ public class EditController {
 	@Autowired
 	private EditService editService;
 	
+	//編集画面の表示
 	@GetMapping("/{userId}/edit")
     public String displayEdit(@PathVariable String userId, Model model) {
         TSyain syain = editService.findByUserId(userId);
@@ -33,6 +34,7 @@ public class EditController {
         return "update/edit";
     }
 	
+	//更新処理
 	@PostMapping("/edit")
     public String update(@ModelAttribute UpdateForm updateForm, Model model) {
 		editService.update(updateForm);
@@ -40,6 +42,7 @@ public class EditController {
         return "/update/confirm";
     }
 	
+	//削除処理
 	@PostMapping("/delete")
 	public String delete(@ModelAttribute UpdateForm updateForm, Model model) {
 		editService.delete(updateForm);

@@ -2,14 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>更新完了</title>
 </head>
 <body>
-	<p th:text="${updateSyain.userId}"></p>
-	<p th:text="${updateSyain.name}"></p>
-	<p th:text="${updateSyain.password}"></p>
-	<p th:text="${updateSyain.gender==1}?'男性':'女性'"></p>
-	<p th:text="${#dates.format(updateSyain.birthday, 'YYYY/MM/dd')}"></p>
+	<h1>更新完了</h1>
+	<p>社員番号:<span th:text="${updateSyain.userId}"></span></p>
+	<p>名前:<span th:text="${updateSyain.name}"></span> </p>
+	<p>パスワード:<span th:text="${updateSyain.password}"></span></p>
+	<p>性別:<span th:text="${updateSyain.gender==1}?'男性':'女性'"></span></p>
+	<p>生年月日:<span th:text="${#dates.format(updateSyain.birthday, 'YYYY/MM/dd')}"></span></p>
 	<a th:href="@{/rpc/list}">社員名簿一覧</a>
 </body>
 </html>
