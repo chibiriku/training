@@ -13,6 +13,8 @@ public class SignupForm {
 	
 	private String name;
 	
+	private String password;
+	
 	@DateTimeFormat(pattern="yyyyMMdd")
 	private Date birthday;
 	

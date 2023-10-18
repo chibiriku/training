@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.dto.LoginForm;
 import com.example.dto.SignupForm;
 import com.example.dto.UpdateForm;
 import com.example.entity.TSyain;
@@ -25,5 +26,6 @@ public interface SyainInfoMapper {
 	
 	List<TSyain> search(String name);
 	
+	TSyain login(LoginForm loginForm);
 	
 }
