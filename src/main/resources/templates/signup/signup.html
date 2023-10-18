@@ -2,9 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>社員登録</title>
 </head>
 <body>
+	<h1>社員登録</h1>
 	<form method="post" th:action="@{/rpc/signup}" th:object="${form}">
 		<input type="text" th:field="*{name}" placeholder="名前">
 		<input type="text" th:field="*{birthday}" placeholder="生年月日">

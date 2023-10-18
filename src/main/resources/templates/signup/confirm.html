@@ -2,14 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>登録完了</title>
 </head>
 <body>
-	<p th:text="${syain.userId}"></p>
-	<p th:text="${syain.name}"></p>
-	<p th:text="${syain.password}"></p>
-	<p th:text="${syain.gender==1}?'男性':'女性'"></p>
-	<p th:text="${#dates.format(syain.birthday, 'YYYY/MM/dd')}"></p>
+	<h1>登録完了</h1>
+	<p>社員番号:<span th:text="${syain.userId}"></span></p>
+	<p>名前:<span th:text="${syain.name}"></span> </p>
+	<p>パスワード:<span th:text="${syain.password}"></span></p>
+	<p>性別:<span th:text="${syain.gender==1}?'男性':'女性'"></span></p>
+	<p>生年月日:<span th:text="${#dates.format(syain.birthday, 'YYYY/MM/dd')}"></span></p>
 	<a th:href="@{/rpc/list}">社員名簿一覧へ</a>
 </body>
 </html>

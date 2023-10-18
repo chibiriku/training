@@ -18,12 +18,14 @@ class SignupController {
 	@Autowired
 	private SignupService signupService;
 	
+	//サインアップフォームの表示
 	@GetMapping("/signup")
 	public String getSignup(Model model) {
 		model.addAttribute("form" ,new SignupForm());
 		return "/signup/signup";
 	}
 	
+	//登録機能
 	@PostMapping("/signup")
 	public String postSignup(@ModelAttribute SignupForm form, Model model) {
 		form.setUserId(signupService.generater());
