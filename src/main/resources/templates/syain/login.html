@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-</head>
+<link th:href="@{/css/sanitize.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/syain/login.css}" rel="stylesheet" type="text/css">
 <body>
-	<h1>ログイン</h1>
-	<form method="post" th:action="@{/rpc/login}" th:object="${loginForm}">
-		<input type="text" th:field="*{userId}" placeholder="社員番号">
-		<input type="text" th:field="*{password}" placeholder="パスワード">
-        <input type="submit" value="ログイン">
-	</form>
+	<div class="form">
+		<form class="login-form" method="post" th:action="@{/rpc/login}" th:object="${loginForm}">
+			<ul>
+				<li>
+					<label for="syain-id">社員番号</label>
+					<input id="syain-id" class="login-input" type="text" th:field="*{userId}" placeholder="社員番号"><br>
+				</li>
+				
+				<li>
+					<label for="password">パスワード</label>
+					<input id="password" class="login-input" type="text" th:field="*{password}" placeholder="パスワード"><br>
+				</li>
+				
+				<li>	
+	        		<input class="login-button" type="submit" value="ログイン">
+	        	</li>
+	        </ul>
+		</form>
+	</div>
 </body>
 </html>

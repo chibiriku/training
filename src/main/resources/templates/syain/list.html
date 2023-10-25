@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>社員一覧</title>
+<link th:href="@{/css/sanitize.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/syain/list.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<h1>社員一覧</h1>
-	<div>
-		<form th:action="@{/rpc/search}" th:object="${searchForm}" th:method="post">
+	<div class="search">
+		<form class="search-form" th:action="@{/rpc/search}" th:object="${searchForm}" th:method="post">
 			 <input type="text" th:field="*{name}">
 			 <input type="submit" value="検索">
 		</form>
